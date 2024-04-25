@@ -1,0 +1,31 @@
+:root {
+    --color-primary: #121212;
+    --color-primary-accent:  #1a1a1a;
+    --color-primary-content:  #1D1D1D;
+    --color-secondary-accent:  #d6a5d4;
+    --color-header-text: #A5D6A7;
+    --color-body-text: #E0E0E0;
+    --color-header-background: #1B5E20;
+
+    --size-type-xsmall: .25rem;
+    --size-type-small: 1rem;
+    --size-type-medium: 2rem;
+    --size-type-large: 3rem;
+
+    --size-type-flex-gap: 10rem;
+    --font-primary: "Barlow", sans-serif;
+
+    --page-grid-gap: 1rem;
+}
+
+.light-mode {
+    --color-primary: white;
+    --color-primary-accent: #f2fff3;
+    --color-primary-content:   #f6fcf7;
+    --color-secondary-accent: blue;
+    --color-header-text: black;
+    --color-header-background: #87ff8f;
+    --color-body-text: black;
+    --color-body-text: black;
+}
+
