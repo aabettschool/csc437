@@ -1,0 +1,213 @@
+<head>
+        <!--Maps URL to NPM-->
+        <script type="importmap">
+            {
+              "imports": {
+                "@calpoly/mustang": "/node_modules/@calpoly/mustang/dist/mustang.mjs"
+              }
+            }
+          </script>
+        <script type="module">
+            import {define, Auth} from "@calpoly/mustang";
+            
+            define({ "mu-auth": Auth.Provider });
+        </script>
+    <!--Barlow font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <script type="module" src="/js/living-space.js"></script>
+    <script type="module" src="/js/living-space-server.js"></script>
+    <script type="module" src="/js/restful-form.js"></script>
+    <script type="module" src="/js/input-array.js"></script>
+    <script type="module" src="/js/user-logistics.js"></script>
+    <script type="module" src="/js/html-loader.js"></script>
+
+    <script type="module"> 
+    import {relayEvent} from "/js/relay-event.js";
+        window.relayEvent = relayEvent
+
+    </script>
+
+<script type="module"> 
+    import {loadHTML} from "/js/html-loader.js";
+        window.addFragment = loadHTML
+
+    </script>
+    
+</head>
+<mu-auth provides="roomnovel:auth" redirect="../profile/login.html">
+
+<article class="page">
+    <header>
+        <h1 class="header">RoomNovel: A Novel Way To Find Roommates</h1>
+        <span class="header">Profile
+        <label class="header">
+            <input type="checkbox" autocomplete="off" onchange="toggleDarkMode(event)"/>
+            Light Mode
+        </label>
+        <a class="header"
+            href="#"
+            onclick="relayEvent(event, 'auth:message', ['auth/signout'])">
+            Sign out
+          </a>
+        </span>
+    </header>
+        <user-logistics src="/api/profiles/803">
+        </user-logistics>
+
+        <restful-form slot="form" src="/api/profiles/803">
+            <h3 slot="title">Logistics Form</h3>
+            <label>
+                <span>First Name</span>
+                <input name="nameFirst">
+            </label>
+            <label>
+                <span>Last Name</span>
+                <input name="nameLast">
+            </label>
+            <label>
+                <span>Age</span>
+                <input name="age">
+            </label>
+            <label>
+                <span>Zip Codes</span>
+                <input-array name="zipCodes">
+                <span slot="label-add">Add zip code</span>
+                </input-array>
+            </label>        
+            <label>
+                <span>Budget</span>
+                <input name="budget">
+            </label>
+            <label>
+                <span>Max Housemates</span>
+                <input name="maxHousemates">
+            </label>
+            <label>
+                <span>Max Roommates</span>
+                <input name="maxRoomates">
+            </label>
+            <label>
+                <span>Cleanliness</span>
+                <input name="cleanliness">
+            </label>
+        </restful-form>
+
+    <!--<section class="logistics">
+        <h3>Logistics</h3>
+        <dl>
+            <dt>Locations</dt>
+            <dd>
+                <p>Santa Cruz, CA</p>
+                <p>San Luis Obispo, CA</p>
+            </dd>
+            <dt>Budget</dt>
+            <dd>$$$ / month</dd>
+            <dt>Max Roommates</dt>
+            <dd>#</dd>
+            <dt>Max Housemates</dt>
+            <dd>#</dd>
+            <dt>Cleanliness</dt>
+            <dd>#/5</dd>
+        </dl>
+    </section>-->
+    <section class="noise_preferences">
+        <h3>Noise Preferences</h3>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Start </th>
+                <th>End </th>
+                <th>Preference</th>
+            </tr>
+            <tr>
+                <td>Every Day</td>
+                <td>11:00PM</td>
+                <td>8:00AM</td>
+                <td>Quiet</td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>8:00AM</td>
+                <td>12:00PM</td>
+                <td>Quiet</td>
+            </tr>
+        </table>
+    </section>
+    <section class="biography">
+        <h3>Biography</h3>
+        <h4>Age: ##</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus enim efficitur dolor vulputate sodales. Donec in blandit enim, in consectetur justo. Aliquam sagittis quam ornare, condimentum ipsum ac, varius mi. Duis lacinia, eros a imperdiet consectetur, mauris quam hendrerit ipsum, id fermentum nisi enim ut neque. Aliquam erat volutpat. Nulla volutpat elit et ex aliquet dignissim. Donec eu lobortis libero, nec tincidunt velit. Praesent at imperdiet justo. Suspendisse potenti. Nam risus massa, semper et dolor eu, malesuada porttitor lorem. Integer finibus bibendum neque vitae cursus. Aliquam suscipit urna in dictum sodales. Ut semper semper augue sit amet consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+            <br><br>Proin bibendum enim eros, eget vehicula est cursus sit amet. Mauris quis nisi at libero semper ullamcorper. Fusce egestas pulvinar turpis, sed lobortis purus rhoncus non. Integer pharetra dolor elit, nec ultrices orci mollis sed. Fusce dapibus ac turpis vel varius. Morbi metus orci, lobortis semper justo sit amet, faucibus luctus massa. Etiam sed tincidunt velit. Vivamus non turpis quis lacus egestas posuere. Morbi consequat risus orci, ullamcorper pharetra risus ullamcorper eu. Suspendisse vitae justo sem. Nam vel facilisis enim, vel dapibus felis. Maecenas vitae congue elit.</p>
+    </section>
+    <section class="endorsements">
+        <h3>Endorsements</h3>
+        <ul class="unbulleted_list">
+            <li>
+                <dl>
+                    <dt>Endorsed By </dt>
+                    <dd><a href="index.html">USER CLONE</a></dd>
+                    <dt>Description</dt>
+                    <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt nisi ut lacus ultricies vulputate. Suspendisse lacus purus, dapibus sed massa non, rhoncus euismod sem. Quisque ut odio interdum, laoreet elit eget, interdum diam. Aliquam erat volutpat. Curabitur nec iaculis sem, non tincidunt nibh. Vivamus placerat consequat tortor, in viverra neque. Suspendisse ac viverra risus. Nam volutpat eget nisl in pellentesque. Integer convallis congue venenatis. Curabitur congue, purus nec pulvinar tristique, nulla turpis sollicitudin nisi, et porta neque erat nec dui. Ut eu convallis tortor. Suspendisse potenti. Nunc accumsan risus justo, eu tincidunt purus gravida eget. Donec sed pretium diam.</dd>
+                </dl>
+            </li>
+        </ul>
+    </section>
+    <section class="current_living_spaces">
+        <h3>Current Living Spaces</h3>
+        <div id = "a">
+            <h2>Home A</h2>
+            <button onclick="addFragment('http://localhost:3000//living-space-template.html', event.target.closest('div'))">See More</button>
+        </div>
+        <div id = "b">
+            <h2>Home B</h2>
+            <button onclick="addFragment('http://localhost:3000//living-space-template.html', event.target.closest('div'))">See More</button>
+        </div>
+        <div id = "c">
+            <h2>Home c</h2>
+            <button onclick="addFragment('http://localhost:3000//living-space-template.html', event.target.closest('div'))">See More</button>
+        </div>
+    </section>
+    <section class="pending_living_spaces">
+        <h3>Pending Living Space Invitations</h3>
+        <div id = "pending-a">
+            <h2>Home A</h2>
+            <button onclick="addFragment('http://localhost:3000//living-space-invite-template.html', event.target.closest('div'))">See More</button>
+        </div>
+        <div id = "pending-b">
+            <h2>Home B</h2>
+            <button onclick="addFragment('http://localhost:3000//living-space-invite-template.html', event.target.closest('div'))">See More</button>
+        </div>
+
+        <div id = "pending-c">
+            <h2>Home c</h2>
+            <button onclick="addFragment('http://localhost:3000//living-space-invite-template.html', event.target.closest('div'))">See More</button>
+        </div>
+
+        </section>
+        <script>
+
+            const page = document.body;
+
+            document.body.addEventListener(
+                "dark-mode:toggle",
+                (event) => {
+                    const page = event.currentTarget;
+                    const checked = event.detail.checked;
+                    page.classList.toggle("light-mode", checked);
+                }
+            )
+
+            function toggleDarkMode(event){
+                relayEvent(event, 'dark-mode:toggle', {checked: event.target.checked});
+            }
+
+        </script>
+        </mu-auth>
+</article>
