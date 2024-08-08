@@ -15,6 +15,8 @@ export function loadJSON(
   })
     .then((response) => {
       console.log(response);
+      console.log("HERE!");
+      console.log(typeof response);
       if (response.status !== 200) {
         throw {
           status: response.status,

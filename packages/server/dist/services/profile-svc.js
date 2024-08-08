@@ -50,6 +50,8 @@ function get(id) {
   });
 }
 function create(profile) {
+  console.log("CREATING....");
+  console.log(profile);
   const p = new ProfileModel(profile);
   return p.save();
 }

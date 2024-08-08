@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import { Profile } from "./Profile";
 
-export interface Endorsment {
+export interface Endorsement {
     id: ObjectId;
     profileId: ObjectId;
     created: Date;

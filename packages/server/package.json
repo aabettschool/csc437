@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "exports": {
+    "./models": {
+      "import": "./src/models/index.ts"
+    }
+  },
   "scripts": {
-    "dev": "cross-env STATIC=../proto/public npx nodemon",
+    "dev": "cross-env STATIC=../proto/public nodemon",
     "build": "npx etsc",
-    "start": "cross-env STATIC=../proto/public node dist/index.js",
-    "check": "npx tsc --noEmit"
+    "start": "npm run build && npm run start:node",
+    "start:node": "node dist/index.js",
+    "check": "tsc --noEmit",
+    "start:app": "cross-env STATIC=../app/dist npm run start",
+    "start:proto": "cross-env STATIC=../proto/public npm run start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@calpoly/mustang": "^0.1.3",
+    "@calpoly/mustang": "^0.1.13",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

@@ -33,6 +33,7 @@ __export(credential_svc_exports, {
 module.exports = __toCommonJS(credential_svc_exports);
 var import_bcryptjs = __toESM(require("bcryptjs"));
 var import_mongoose = require("mongoose");
+var import_profile_svc = __toESM(require("../services/profile-svc"));
 const credentialSchema = new import_mongoose.Schema(
   {
     username: {
@@ -65,9 +66,25 @@ function create(username, password) {
           username,
           hashedPassword
         });
+        console.log("CREATING " + username);
+        import_profile_svc.default.create({
+          id: username,
+          nameFirst: "enter first",
+          nameLast: "enter last",
+          age: 0,
+          noisePreferenceIds: [],
+          cleanliness: 0,
+          maxRoomates: 0,
+          maxHousemates: 0,
+          budget: 0,
+          endorsmentIds: [],
+          zipCodes: [],
+          livingSpaceIds: []
+        });
         creds.save().then((created) => {
-          if (created)
+          if (created) {
             resolve(created);
+          }
         });
       })
     );

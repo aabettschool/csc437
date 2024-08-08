@@ -39,6 +39,8 @@ function get(id: String): Promise<Profile> {
 
 // Creates new profile  
 function create(profile: Profile): Promise<Profile> {
+    console.log("CREATING....");
+    console.log(profile);
     const p = new ProfileModel(profile);
     return p.save();
 }

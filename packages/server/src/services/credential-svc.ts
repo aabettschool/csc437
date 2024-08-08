@@ -2,6 +2,8 @@ import bcrypt from "bcryptjs";
 
 import {Schema, model} from "mongoose";
 import { Credential } from "models/Credential";
+import { Profile } from "../models/Profile";
+import profiles from "../services/profile-svc"
 
 const credentialSchema = new Schema<Credential>(
     {
@@ -43,9 +45,24 @@ function create(username: string, password: string){
                     username,
                     hashedPassword
                 });
+                profiles.create({id: username,
+                    nameFirst: "enter first",
+                    nameLast: "enter last",
+                    age: 0,
+                    noisePreferenceIds: [],
+                    cleanliness: 0,
+                    maxRoomates: 0,
+                    maxHousemates: 0,
+                    budget: 0,
+                    endorsmentIds: [],
+                    zipCodes: [],
+                    livingSpaceIds: []});
                 creds.save().then((created: Credential) => {
-                    if (created) resolve(created);
+                    if (created){
+                        resolve(created);
+                    }
                 });
+
             })
         );
     });

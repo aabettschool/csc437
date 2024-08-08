@@ -74,9 +74,6 @@ function generateAccessToken(
     if (authHeader != undefined) {
       token = authHeader.split(" ")[1];
     }
-    console.log("this is the AUTH HEADER!")
-    console.log(token);
-    console.log(authHeader);
     if (!token) {
       console.log("NOT A TOKEN!")
       res.status(401).end();
