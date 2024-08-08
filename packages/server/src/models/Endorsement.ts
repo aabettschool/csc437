@@ -1,5 +1,4 @@
 import { ObjectId } from "mongodb";
-import { Profile } from "./Profile";
 
 export interface Endorsement {
     id: ObjectId;

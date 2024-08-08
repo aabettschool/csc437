@@ -1,12 +1,10 @@
-import {define, View, Rest, Form, History} from "@calpoly/mustang";
+import {define, View, Rest} from "@calpoly/mustang";
 import {css, html} from "lit";
 import {property} from "lit/decorators.js";
-import {Endorsement, Profile} from "server/models";
+import {Profile} from "server/models";
 import {Msg} from "../messages";
 import {Model} from "../model";
 
-
-import {InputArrayElement} from "./input-array"
 import { UserLogisticsFormElement } from "./user-logistics-form";
 
 

@@ -1,7 +1,7 @@
 import {Auth, Update} from "@calpoly/mustang";
 import {Msg} from "./messages";
 import {Model} from "./model";
-import {Profile, Endorsement} from "server/models";
+import {Profile} from "server/models";
 
 export default function update(
     message: Msg,

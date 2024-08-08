@@ -86,7 +86,6 @@ export class FormElement extends HTMLElement {
             )
               .then((json) => populateForm(json, this))
               .then((json) => {
-                const form = this.form;
                 const customType = `mu-rest-form:${action}`;
                 const event = new CustomEvent(customType, {
                   bubbles: true,

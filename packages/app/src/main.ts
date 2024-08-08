@@ -6,7 +6,7 @@ import update from "./update";
 import { HeaderElement } from "./components/header"
 import { UserLogisticsElement} from "./views/user-logistics";
 import { UserLogisticsFormElement} from "./views/user-logistics-form";
-import {css, html} from "lit";
+import {html} from "lit";
 
 // This is where the store is configured
 const routes = [

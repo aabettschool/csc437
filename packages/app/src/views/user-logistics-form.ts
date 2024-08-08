@@ -1,7 +1,7 @@
 import {define, View, Rest, Form, History, Events} from "@calpoly/mustang";
 import {css, html} from "lit";
 import {property, state} from "lit/decorators.js";
-import {Endorsement, Profile} from "server/models";
+import {Profile} from "server/models";
 import {Msg} from "../messages";
 import {Model} from "../model";
 
