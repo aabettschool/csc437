@@ -39,7 +39,7 @@ router.get("/", (req, res) => {
 });
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  import_profile_svc.default.get(id).then((profile) => res.json(profile)).catch((err) => res.status(404).end());
+  import_profile_svc.default.get(id).then((profile) => res.json(profile)).catch((err) => res.status(404).send(err));
 });
 router.post("/", (req, res) => {
   const newProfile = req.body;

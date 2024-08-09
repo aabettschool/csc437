@@ -66,7 +66,6 @@ function create(username, password) {
           username,
           hashedPassword
         });
-        console.log("CREATING " + username);
         import_profile_svc.default.create({
           id: username,
           nameFirst: "enter first",

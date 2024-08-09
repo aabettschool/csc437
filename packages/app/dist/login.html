@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <meta charset="utf-8" />
+    <style>
+
+
+      .page {
+        background-color: var(--color-primary-content);
+        height: 100vh;
+        grid-template-rows: 1fr fit-content(1fr) 1fr;
+      }
+      main.card {
+        align-self: center;
+        grid-column: 3 / span 4;
+      }
+      h2 {
+        grid-column: start / end;
+        align-self: end;
+      }
+      p {
+        grid-column: 2 / -2;
+        text-align: center;
+      }
+
+      p, h1, h2, h3, h4, h5 {
+        color: var(--color-body-text);
+      }
+
+      login-form {
+        background-color: var(--color-primary-accent);
+        color: var(--color-body-text);
+      }
+
+    </style>
+    <script type="module" crossorigin src="/assets/login-B4j5PSZB.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/lit-element-D86FuxuS.js">
+    <link rel="modulepreload" crossorigin href="/assets/login-form-BigwbJxL.js">
+  </head>
+  <body class="page">
+    <mu-auth>
+      <h2>User Login</h2>
+      <main class="card">
+        <login-form>
+          <label>
+            <span>Username:</span>
+            <input name="username" autocomplete="off" />
+          </label>
+          <label>
+            <span>Password:</span>
+            <input type="password" name="password" />
+          </label>
+        </login-form>
+      </main>
+      <p
+        >Or did you want to
+        <a href="./newuser.html">Sign up as a new user</a>?
+      </p>
+    </mu-auth>
+  </body>
+</html>

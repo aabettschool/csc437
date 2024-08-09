@@ -42,7 +42,7 @@ section > * {
     padding: var(--size-type-small); 
 }
 
-user-logistics, section, restful-form {
+user-logistics, section, restful-form, mu-form {
     background-color: var(--color-primary-accent);
     grid-column: start / 5;
 }

@@ -18,7 +18,7 @@ router.get("/:id", (req: Request, res: Response) => {
     profiles
     .get(id).then((profile: Profile) => 
         res.json(profile)).catch((err)=> 
-        res.status(404).end())
+        res.status(404).send(err))
 });
 
 // Handle post request
